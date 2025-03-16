@@ -19,9 +19,9 @@ const LoginPage = () => {
       setLoading(true);
       setButtonDisabled(true);
       const response = await axios.post("/api/users/login", user);
-      console.log("Signup success", response.data);
+      console.log("Login success", response.data);
       toast.success("Login success");
-      router.push("/profile");
+      router.push(`/profile/${response.data.userId}`);
     } catch (error: any) {
       // Check if the error is an Axios error
       if (error.response) {
